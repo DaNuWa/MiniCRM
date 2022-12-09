@@ -315,24 +315,24 @@ return [
         ['header' => 'Companies'],
         [
             'text' => 'View companies',
-            'url'  => 'company',
+            'url'  => 'companies',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Create companies',
-            'url'  => 'admin/settings',
+            'text' => 'Create company',
+            'url'  => 'companies/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         ['header' => 'Users'],
         [
             'text' => 'View Users',
-            'url'  => 'company',
+            'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Create Users',
-            'url'  => 'admin/settings',
+            'text' => 'Create User',
+            'url'  => 'users/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
     

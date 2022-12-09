@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        return view('home', compact('companies'));
     }
 
     /**
@@ -33,9 +35,19 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        //
+        $company = Company::create($request->except('image'));
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('companies', $imageName);
+            $company->image_path = $imageName;
+            $company->save();
+        }
+
+        flash('Successfully created the company!')->success();
+        return to_route('companies.index');
     }
 
     /**
@@ -46,7 +58,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('company.show',compact('company'));
+        return view('company.show', compact('company'));
     }
 
     /**

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('website');
+            $table->string('website')->nullable();
+            $table->string('image_path')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

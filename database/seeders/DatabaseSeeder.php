@@ -15,14 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(CompanyTableSeeder::class);
 
         \App\Models\User::factory()->create([
-            'name' => 'Admin User',
             'email' => 'admin@admin.com',
             'password'=>Hash::make('password')
         ]);
+        \App\Models\User::factory()->count(15)->create();
 
-        $this->call(CompanyTableSeeder::class);
     }
 }
