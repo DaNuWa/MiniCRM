@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,30 +24,36 @@ class UserController extends Controller
 
     public function store(UsersRequest $request)
     {
-        dd($request->toArray());
+        User::create($request->validated());
+        flash('Successfully created the user!')->success();
+        return to_route('users.index');
+
     }
 
 
-    public function show($id)
+    public function show(User $user)
     {
-        //
+       return view('user.show',compact('user'));
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.edit', compact('user'));
+
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        User::where('id',$id)->update($request->validated());
+        return to_route('users.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return to_route('users.index');
     }
 }

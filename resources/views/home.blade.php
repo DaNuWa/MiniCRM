@@ -29,7 +29,11 @@
       <td><img src="{{asset('storage/companies/'.$company->image_path)}}" alt="companyimage"></td>
    <td>
     <a href="{{route('companies.edit',$company->id)}}"><button type="button" class="btn btn-warning">Edit</button></a>
-    <a href="{{route('companies.destroy',$company->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
+    <form action="{{route('companies.destroy',$company->id)}}" method="POST">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
   </td>
    
     </tr>
