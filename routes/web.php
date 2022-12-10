@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +25,7 @@ Route::get('/register', function () {
     return to_route('companies.index');
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('companies', CompanyController::class);
     Route::resource('users', UserController::class);
 });
-
-

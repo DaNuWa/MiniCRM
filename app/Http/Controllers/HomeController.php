@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -24,7 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $companies=Company::all();
-        return view('home',compact('companies'));
+        $companies = Company::all();
+
+        return view('home', compact('companies'));
     }
 }

@@ -292,12 +292,12 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type' => 'navbar-search',
+            'text' => 'search',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
@@ -308,35 +308,34 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
-       
+
         ['header' => 'Companies'],
         [
             'text' => 'View companies',
-            'url'  => 'companies',
+            'url' => 'companies',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Create company',
-            'url'  => 'companies/create',
+            'url' => 'companies/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         ['header' => 'Users'],
         [
             'text' => 'View Users',
-            'url'  => 'users',
+            'url' => 'users',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Create User',
-            'url'  => 'users/create',
+            'url' => 'users/create',
             'icon' => 'fas fa-fw fa-lock',
         ],
-    
-       
+
     ],
 
     /*

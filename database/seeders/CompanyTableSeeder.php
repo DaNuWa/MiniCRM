@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CompanyTableSeeder extends Seeder
@@ -15,10 +14,10 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach (range(1,50) as $key => $value) {
-            Company::create(['name'=>'company '.$value,
-            'email'=>'comapny'.$value.'@test.com',
-            'website'=>'www.company'.$value.'.com' ]);
+        foreach (range(1, 50) as $key => $value) {
+            Company::create(['name' => 'company '.$value,
+                'email' => 'comapny'.$value.'@test.com',
+                'website' => 'www.company'.$value.'.com', ]);
         }
     }
 }

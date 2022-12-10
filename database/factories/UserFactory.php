@@ -20,8 +20,8 @@ class UserFactory extends Factory
         return [
             'first_name' => fake()->name(),
             'last_name' => fake()->name(),
-            'phone'=>fake()->numberBetween(1000000,1000999),
-            'company_id'=>fake()->numberBetween(1,5),
+            'phone' => fake()->numberBetween(1000000, 1000999),
+            'company_id' => fake()->numberBetween(1, 5),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

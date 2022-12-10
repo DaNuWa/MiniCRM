@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use App\Models\Company;
-use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
     public function index()
     {
         $companies = Company::all();
+
         return view('home', compact('companies'));
     }
 
@@ -25,13 +25,14 @@ class CompanyController extends Controller
         $company = Company::create($request->except('image'));
 
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = time().'.'.$request->image->extension();
             $request->image->storeAs('companies', $imageName);
             $company->image_path = $imageName;
             $company->save();
         }
 
         flash('Successfully created the company!')->success();
+
         return to_route('companies.index');
     }
 
@@ -42,21 +43,22 @@ class CompanyController extends Controller
 
     public function edit(Company $company)
     {
-        return view('company.edit',compact('company'));
+        return view('company.edit', compact('company'));
     }
 
     public function update(CompanyUpdateRequest $request, $id)
     {
-        Company::where('id',$id)->update($request->validated());
+        Company::where('id', $id)->update($request->validated());
         flash('Successfully updated the company!')->success();
-        return to_route('companies.index');
 
+        return to_route('companies.index');
     }
+
     public function destroy(Company $company)
     {
         $company->delete();
         flash('Successfully deleted the company!')->success();
-        return to_route('companies.index');
 
+        return to_route('companies.index');
     }
 }
