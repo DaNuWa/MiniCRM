@@ -12,7 +12,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::with('company')->paginate();
+        $users = User::with('company')->paginate(10);
         return view('user.index', compact('users'));
     }
 
@@ -47,6 +47,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
         User::where('id',$id)->update($request->validated());
+        flash('Successfully updated the user!')->success();
         return to_route('users.index');
     }
 
@@ -54,6 +55,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        flash('Successfully deleted the user!')->success();
         return to_route('users.index');
     }
 }

@@ -53,5 +53,7 @@
    $(document).ready( function () {
     $('.table').DataTable();
 } );
+$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+
 </script>
 @stop

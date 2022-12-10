@@ -60,8 +60,6 @@
 @section('js')
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
-   $(document).ready( function () {
-    // $('.table').DataTable();
-} );
+  $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 </script>
 @stop

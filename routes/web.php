@@ -17,13 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return to_route('companies.index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register', function () {
+    return to_route('companies.index');
+});
 
-Route::resource('companies', CompanyController::class);
-Route::resource('users', UserController::class);
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('companies', CompanyController::class);
+    Route::resource('users', UserController::class);
+});
+
 

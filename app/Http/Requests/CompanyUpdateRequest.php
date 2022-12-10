@@ -26,6 +26,7 @@ class CompanyUpdateRequest extends FormRequest
         return [
             'name'=>['required'],
            'email'=>['required'],
+           'website'=>['nullable'],
            'image'=>['nullable','dimensions:width=100,height=100']
         ];
     }
